@@ -1,3 +1,7 @@
+#importar valor da constante pi
+from math import pi
+
+
 #função é um trecho de código que tem um nome e pode receber informações
 #externas para fazer seu trabalho.
 #Opcionalmente, uma função pode tambem produzir um valor de resultado
@@ -23,3 +27,22 @@ a = float(input('Informe a altura da pessoa:'))
 resultado = imc(p, a) #passando o valor de a e b como parametro para a função imc e recebendo o resultado
 
 print(f"O IMC calculado é {resultado}.")
+
+def area_forma(base, altura, forma):
+    """
+    Função que calcula a área de uma das seguintes formas geométricas: retângulo, triângulo ou elipse Parametro forma: "R" == retangulo "T" == triângulo "E" == elipse
+    """
+
+    area = 0
+    if forma == "R": #Retângulo
+        area = base * altura
+    elif forma == "T": #Triângulo 
+        area = base * altura / 2 
+    elif forma == "E": #Elipse
+        area = (base / 2) * (altura / 2) * pi
+    return area
+
+
+print(f"Retângulo 7.5x11: {area_forma(7.5, 11, 'R')}")
+print(f"Triângulo 8x12: {area_forma(8, 12,'T')}")
+print(f"Circulo 15x15: {area_forma(15,15, 'E')}")
