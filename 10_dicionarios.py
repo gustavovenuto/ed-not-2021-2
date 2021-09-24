@@ -1,51 +1,65 @@
-# Dicionário é uma estrutura da linguagem python
-# Capaz de armazenar multiplos valores em uma unica
-# Variavel, por meio de pares de chave-valor
+# Dicionário é uma estrutura da linguagem Python
+# capaz de armazenar múltiplos valores em uma única
+# variável, por meio de pares de chave-valor
 pessoa = {
-    #"nome" é a chave
-    # "fulano de tal é o valor"
-    "nome": "Fulano de tal",
+    # "nome" é a chave
+    # "Fulano de Tal" é o valor
+    "nome": "Fulano de Tal",
     "sexo": "M",
     "idade": 39,
     "peso": 76,
     "altura": 1.82
 }
 
-# Calculando o imc (Indice de massa corporal)
+# Calculando o IMC (Índice de Massa Corporal)
 imc = pessoa["peso"] / (pessoa["altura"] ** 2)
 print(f"O IMC de {pessoa['nome']} é {imc}.")
 
-formal = {
+forma1 = {
     "base": 7.5,
     "altura": 12,
-    "tipo": "R" # Retangulo
+    "tipo": "R"     # Retângulo
 }
 
 forma2 = {
     "base": 6,
     "altura": 2.5,
-    "tipo": "T" # triangulo
+    "tipo": "T"     # Triângulo
 }
 
 forma3 = {
     "base": 5,
     "altura": 3,
-    "tipo": "E" #elipse
+    "tipo": "E"     # Elipse
 }
 
+forma4 = {
+    "base": 10,
+    "altura": 5,
+    "tipo": "W"     # Tipo não reconhecido
+}
 
-def calcular_area(form):
-    if forma["tipo"] == "R":
+forma5 = {
+    "legume": "batata",
+    "fruta": "abacate",
+    "tipo": "T"
+}
+
+from math import pi
+
+def calcular_area(forma):
+    if forma["tipo"] == "R":    # Retângulo
         return forma["base"] * forma["altura"]
-        elif forma["tipo"] == "T":
-            return forma["base"] * forma["altura"] / 2
-        elif forma["tipo"] == "E": 
-            return forma["base"] / 2 * forma["altura"] / 2 * pi
-        else:
-            #gera um erro
-            raise Exception("Tipo de forma não reconhecida")
-print(f"Area de um retangulo de 7.5x12: {calcular_area(forma1)}")
-print(f"Area de um Triangulo de 6x2.5: {calcular_area(forma2)}")
-print(f"Area de um retangulo de 5x3W: {calcular_area(forma3)}")
+    elif forma["tipo"] == "T":  # Triângulo
+        return forma["base"] * forma["altura"] / 2
+    elif forma["tipo"] == "E":  # Elipse
+        return forma["base"] / 2 * forma["altura"] / 2 * pi
+    else:
+        # Gera um erro
+        raise Exception("Tipo de forma não reconhecido.") 
 
-}
+print(f"Área de um retângulo de 7.5x12: {calcular_area(forma1)}")
+print(f"Área de um triângulo de 6x2.5: {calcular_area(forma2)}")
+print(f"Área de uma elipse de 5x3: {calcular_area(forma3)}")
+# print(f"Área de uma forma desconhecida de 10x5: {calcular_area(forma4)}")
+print(f"Área de uma forma desconhecida de ?x?: {calcular_area(forma5)}")

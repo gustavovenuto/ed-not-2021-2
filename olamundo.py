@@ -1,17 +1,17 @@
-#print() usado para exibir informações
-print("Olá Mundo !")
+# print(): exibe informações
+print("Olá, mundo!")
 
-#input() usado para inserir informação
-nome = input('Qual é o seu nome ?')
+# input(): permite entrada de informações
+nome = input('Qual é o seu nome? ')
 
-print(f'Olá {nome}')
+print(f"Olá, {nome}!")
 
-#int() converte a string do input para numero inteiro
-idade = int(input('Informe sua idade: '))
+# int() converte o que foi informado no input() de texto para número inteiro
+idade = int(input('Informe a sua idade: '))
 
-if idade >= 18: 
+if idade >= 18:
     print('Você já pode beber.')
     print('Você já pode tirar habilitação.')
-else: 
-    print('Você não pode beber')
+else:
+    print('Você não pode beber.')
     print('Você não pode tirar habilitação.')

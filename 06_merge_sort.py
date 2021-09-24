@@ -9,15 +9,17 @@ comps = 0
 divisoes = 0
 juncoes = 0
 
-
 def merge_sort(lista):
     """
         Função que implementa o algoritmo merge sort usando o
         método RECURSIVO
     """
-    # Não podemos zerar as variáveis globais de estatistica dentro da função
-    # Porque ela é recursiva e resetaria a contagem a cada chamada
+
+    # Não podemos zerar as variáveis globais de estatística
+    # dentro da função porque ela é recursiva e resetaria
+    # a contagem a cada chamada
     global comps, divisoes, juncoes
+
     # print(f'Lista recebida: {lista}')
 
     # Só continua se a lista tiver mais de um elemento
@@ -29,8 +31,8 @@ def merge_sort(lista):
     # Gera cópia da primeira metade da lista
     lista_esq = lista[:meio]    # Do início ao meio - 1
     # Gera cópia da segunda metade da lista
-    lista_dir = lista[meio:]    # Do meio ao fim
-
+    lista_dir = lista[meio:]    # Do meio ao 
+    
     divisoes += 1
 
     # Chamamos recursivamente a função para continuar
@@ -59,6 +61,7 @@ def merge_sort(lista):
             ordenada.append(lista_dir[pos_dir])
             pos_dir += 1
         comps += 1
+
     sobra = None    # A sobra da lista que ficou para trás
 
     if pos_esq < pos_dir:  # Houve sobra à esquerda
@@ -68,7 +71,7 @@ def merge_sort(lista):
 
     # print(f'>>>> final ordenada: {ordenada + sobra}')
 
-    # Retornamos a lista final ordenada, composta da ordenada + sobra
+    # Retornamos a lista final ordenada, composta da ordenada + 
     juncoes += 1
     return ordenada + sobra     # "Soma" de duas listas
 
@@ -89,19 +92,25 @@ print(nums_ord)
 from data.nomes_desord import nomes
 from time import time
 import tracemalloc
+import psutil
+
+comps = 0
+divisoes = 0
+juncoes = 0
 
 ini = time()
-tracemalloc.start()     # Inicia a medição de consumo de memória
+#tracemalloc.start()     # Inicia a medição de consumo de memória
 
 nomes_ord = merge_sort(nomes)
 
-mem_atual, mem_pico = tracemalloc.get_traced_memory()
+#mem_atual, mem_pico = tracemalloc.get_traced_memory()
 
 fim = time()
 
 print(nomes_ord)
 print(f"Tempo: {fim - ini}")
-print(f"Pico de memória: {mem_pico / 1024 / 1024}MB")
+# print(f"Pico de memória: {mem_pico / 1024 / 1024}MB")
 print(f"Comparações: {comps}, divisões: {divisoes}, junções: {juncoes}")
 
-tracemalloc.stop()      # Finaliza a medição do consumo de memória
+# tracemalloc.stop()      # Finaliza a medição do consumo de memória
+print('The CPU usage is: ', psutil.cpu_percent(4))

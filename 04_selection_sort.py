@@ -1,4 +1,3 @@
-  
 # ALGORITMO DE ORDENAÇÃO SELECTION SORT
 #
 # Isola (seleciona) o primeiro elemento da lista e, em seguida,
@@ -73,10 +72,9 @@ from data.nomes_desord import nomes
 from time import time
 import tracemalloc
 
-#nomes_parcial = nomes[:30000]   # Usa apenas os primeiros 30 mil nomes
-
 ini = time()
-#selection_sort(nomes_parcial)
+tracemalloc.start()
+
 selection_sort(nomes)
 
 mem_atual, mem_pico = tracemalloc.get_traced_memory()
@@ -89,3 +87,5 @@ print(f"Tempo: {fim - ini}")
 print(f"Passadas: {passadas}, comparações: {comps}, trocas: {trocas}")
 
 print(f"Pico de memória: {mem_pico / 1024 / 1024}MB")
+
+tracemalloc.stop()      # Finaliza a medição do consumo de memória
